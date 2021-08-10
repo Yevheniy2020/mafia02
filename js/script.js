@@ -89,13 +89,7 @@ btnRole.addEventListener('click', function (e) {
     e.preventDefault();
     document.querySelector('.game-info__text').textContent = `You ${arrayResult[counterArray]}`;
 
-    if (allPlayer > arrayAll.length) {
-        btnRole.removeEventListener('click');
-    } else {
-        document.querySelector('.counter-player').textContent = `${allPlayer}/${arrayAll.length}`;
-    }
-
-
+    document.querySelector('.counter-player').textContent = `${allPlayer}/${arrayAll.length}`;
     if (arrayResult[counterArray] == "mafia") {
         imgRole.style.background = `url('${pics[3]}') no-repeat 50% / cover`;
     } else if (arrayResult[counterArray] == "doctor") {
@@ -105,6 +99,7 @@ btnRole.addEventListener('click', function (e) {
     } else if (arrayResult[counterArray] == "player") {
         imgRole.style.background = `url('${pics[2]}') no-repeat 50% / cover`;
     } else {
+        btnRole.removeEventListener('click');
         document.querySelector('.game-info__text').textContent = `no more roles`;
         imgRole.style.background = `url('${pics[5]}') no-repeat 50% / cover`;
     }
